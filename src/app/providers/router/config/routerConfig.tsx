@@ -8,13 +8,13 @@ export enum AppRoutes {
 }
 
 export const routes: RouteProps[] = [
-  {
-    path: AppRoutes.MAIN,
-    element: <MainPage />,
-  },
+    {
+        path: AppRoutes.MAIN,
+        element: <MainPage />,
+    },
 
-  {
-    path: AppRoutes.ABOUT,
-    element: <AboutPage />,
-  },
+    {
+        path: AppRoutes.ABOUT,
+        element: <AboutPage />,
+    },
 ];

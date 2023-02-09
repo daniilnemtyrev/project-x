@@ -1,29 +1,29 @@
-import { classNames } from "shared/lib";
-import cls from "./Button.module.scss";
-
-import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { classNames } from 'shared/lib'
+import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import cls from './Button.module.scss'
 
 export enum ButtonVariants {
-  CLEAR = "clear",
+    CLEAR = 'clear',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  variant?: ButtonVariants;
+    className?: string
+    variant?: ButtonVariants
 }
 
 export function Button({
-  className,
-  variant = ButtonVariants.CLEAR,
-  children,
-  ...rest
+    className,
+    variant = ButtonVariants.CLEAR,
+    children,
+    ...rest
 }: PropsWithChildren<ButtonProps>) {
-  return (
-    <button
-      {...rest}
-      className={classNames(cls.button, {}, [className, cls[variant]])}
-    >
-      {children}
-    </button>
-  );
+    return (
+        <button
+            {...rest}
+            type="button"
+            className={classNames(cls.button, {}, [className, cls[variant]])}
+        >
+            {children}
+        </button>
+    )
 }
