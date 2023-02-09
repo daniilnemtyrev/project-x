@@ -1,7 +1,8 @@
 import { classNames } from 'shared/lib'
 
-import { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren } from 'react'
 import { AppLink, AppLinkVarinats } from 'shared/ui'
+import { useTranslation } from 'react-i18next'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {
@@ -9,21 +10,17 @@ interface NavbarProps {
 }
 
 export function Navbar({ className }: PropsWithChildren<NavbarProps>) {
-    const [test, setT] = useState(false)
+    const { t } = useTranslation()
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.links}>
                 <AppLink variant={AppLinkVarinats.INVERTED} to="/">
-                    MAIN
+                    {t('navbar.main')}
                 </AppLink>
                 <AppLink variant={AppLinkVarinats.INVERTED} to="/about">
-                    ABOUT
+                    {t('navbar.about')}
                 </AppLink>
-                <button type="button" onClick={() => setT(true)}>
-                    click
-                </button>
-                {test && <p>lol</p>}
             </div>
         </div>
     )

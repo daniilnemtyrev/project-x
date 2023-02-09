@@ -1,3 +1,7 @@
 {
-  "language": "RU"
+  "language": "RU",
+  "navbar": {
+    "about": "О нас",
+    "main": "Главная"
+  }
 }
