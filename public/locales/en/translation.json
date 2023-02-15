@@ -1,7 +1,13 @@
 {
+  "error": "Something went wrong...",
   "language": "EN",
   "navbar": {
     "about": "About",
     "main": "Main"
+  },
+  "notFoundPage": "Page not found",
+  "sidebar": {
+    "collapse": "Collapse",
+    "toggle": "toggle"
   }
 }

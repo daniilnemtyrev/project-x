@@ -1,7 +1,13 @@
 {
+  "error": "Что-то пошло не так...",
   "language": "RU",
   "navbar": {
     "about": "О нас",
     "main": "Главная"
+  },
+  "notFoundPage": "Страница не найдена",
+  "sidebar": {
+    "collapse": "Свернуть",
+    "toggle": "toggle"
   }
 }

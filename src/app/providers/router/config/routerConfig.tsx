@@ -1,10 +1,12 @@
-import { AboutPage } from "pages/AboutPage";
-import { MainPage } from "pages/MainPage";
-import { RouteProps } from "react-router-dom";
+import { AboutPage } from 'pages/AboutPage'
+import { MainPage } from 'pages/MainPage'
+import { NotFoundPage } from 'pages/NotFoundPage'
+import { RouteProps } from 'react-router-dom'
 
 export enum AppRoutes {
-  MAIN = "/",
-  ABOUT = "/about",
+    MAIN = '/',
+    ABOUT = '/about',
+    NOT_FOUND = '*',
 }
 
 export const routes: RouteProps[] = [
@@ -17,4 +19,8 @@ export const routes: RouteProps[] = [
         path: AppRoutes.ABOUT,
         element: <AboutPage />,
     },
-];
+    {
+        path: AppRoutes.NOT_FOUND,
+        element: <NotFoundPage />,
+    },
+]
