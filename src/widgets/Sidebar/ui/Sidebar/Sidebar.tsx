@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames } from 'shared/lib/classNames'
 
 import { PropsWithChildren, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
@@ -14,7 +14,7 @@ export function Sidebar({ className }: PropsWithChildren<SidebarProps>) {
     const { t } = useTranslation()
     const [collapsed, setCollapsed] = useState(false)
 
-    const onToogle = () => {
+    const onToggle = () => {
         setCollapsed((prev) => !prev)
     }
 
@@ -23,8 +23,14 @@ export function Sidebar({ className }: PropsWithChildren<SidebarProps>) {
             className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}
+            data-testid="sidebar"
         >
-            <button className={cls.toggle} type="button" onClick={onToogle}>
+            <button
+                data-testid="sidebar-toggle"
+                className={cls.toggle}
+                type="button"
+                onClick={onToggle}
+            >
                 {!collapsed && t('sidebar.collapse')}
             </button>
 

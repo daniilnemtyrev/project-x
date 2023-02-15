@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames } from 'shared/lib/classNames'
 
 import { PropsWithChildren } from 'react'
 import { AppLink, AppLinkVarinats } from 'shared/ui'

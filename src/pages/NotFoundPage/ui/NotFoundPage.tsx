@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames } from 'shared/lib/classNames'
 
 import type { PropsWithChildren } from 'react'
 import { useTranslation } from 'react-i18next'

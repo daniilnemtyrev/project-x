@@ -1,17 +1,17 @@
-import { classNames } from "shared/lib";
+import { classNames } from 'shared/lib/classNames'
 
-import type { PropsWithChildren } from "react";
-import { Link, LinkProps } from "react-router-dom";
-import cls from "./AppLink.module.scss";
+import type { PropsWithChildren } from 'react'
+import { Link, LinkProps } from 'react-router-dom'
+import cls from './AppLink.module.scss'
 
 export enum AppLinkVarinats {
-  PRIMARY = "primary",
-  INVERTED = "inverted",
+    PRIMARY = 'primary',
+    INVERTED = 'inverted',
 }
 
 interface AppLinkProps extends LinkProps {
-  className?: string;
-  variant?: AppLinkVarinats;
+    className?: string
+    variant?: AppLinkVarinats
 }
 
 export function AppLink({
@@ -29,5 +29,5 @@ export function AppLink({
         >
             {children}
         </Link>
-    );
+    )
 }

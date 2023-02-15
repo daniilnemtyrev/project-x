@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames } from 'shared/lib/classNames'
 
 import type { PropsWithChildren } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -14,7 +14,7 @@ export function LangSwitcher({
 }: PropsWithChildren<LangSwitcherProps>) {
     const { t, i18n } = useTranslation()
 
-    const changeLang = () => {
+    const changeLang = async () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
     }
 

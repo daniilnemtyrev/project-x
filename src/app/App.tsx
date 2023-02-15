@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames } from 'shared/lib/classNames'
 import { useTheme } from 'shared/contexts/theme-context'
 import './styles/index.scss'
 import { Navbar } from 'widgets/Navbar'

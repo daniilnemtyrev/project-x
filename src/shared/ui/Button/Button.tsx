@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames } from 'shared/lib/classNames'
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
 import cls from './Button.module.scss'
 

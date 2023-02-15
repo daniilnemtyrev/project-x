@@ -2,11 +2,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+
 import { BuildOptions } from './types/config'
 
 export function buildPlugins({
     paths,
     isDev,
+    isAnalyze,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({
@@ -21,5 +24,6 @@ export function buildPlugins({
             __IS_DEV__: isDev,
         }),
         isDev && new ReactRefreshWebpackPlugin({ overlay: false }),
+        isAnalyze && new BundleAnalyzerPlugin(),
     ].filter(Boolean)
 }

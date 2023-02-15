@@ -38,9 +38,17 @@ module.exports = {
         "import/no-extraneous-dependencies": 0,
         "react/function-component-definition": 0,
         "no-underscore-dangle": 0,
-        "i18next/no-literal-string": 1
+        "i18next/no-literal-string": 1,
     },
     globals: {
         '__IS_DEV__': true
-    }
+    },
+    overrides: [
+        {
+            files: ["**/src/**/*.test.{ts,tsx}"],
+            rules: {
+                "i18next/no-literal-string": 0,
+            }
+        }
+    ]
 };
