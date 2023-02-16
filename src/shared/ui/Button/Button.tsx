@@ -19,6 +19,7 @@ export function Button({
 }: PropsWithChildren<ButtonProps>) {
     return (
         <button
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
             type="button"
             className={classNames(cls.button, {}, [className, cls[variant]])}
