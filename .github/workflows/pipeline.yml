@@ -10,6 +10,9 @@ jobs:
         strategy:
             matrix:
                 node-version: [17.x]
+        permissions:
+            contents: write
+            pull-requests: write
 
         steps:
             - uses: actions/checkout@v3
@@ -31,3 +34,14 @@ jobs:
               run: npm run build:storybook
             - name: screenshot testing
               run: npm run test:ui:ci
+            - name: screenshots difference
+            
+              run: /
+                date > generated.txt
+                git config user.name github-actions
+                git config user.email github-actions@github.com
+                git add .
+                git checkout -b screenshots
+                git commit -m "failure screensshots"
+                git push -f origin screenshots
+
