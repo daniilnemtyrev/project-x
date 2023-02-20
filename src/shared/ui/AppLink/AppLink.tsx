@@ -4,21 +4,21 @@ import type { PropsWithChildren } from 'react'
 import { Link, LinkProps } from 'react-router-dom'
 import cls from './AppLink.module.scss'
 
-export enum AppLinkVarinats {
+export enum AppLinkVariants {
     PRIMARY = 'primary',
     INVERTED = 'inverted',
 }
 
 interface AppLinkProps extends LinkProps {
     className?: string
-    variant?: AppLinkVarinats
+    variant?: AppLinkVariants
 }
 
 export function AppLink({
     to,
     className,
     children,
-    variant = AppLinkVarinats.PRIMARY,
+    variant = AppLinkVariants.PRIMARY,
     ...rest
 }: PropsWithChildren<AppLinkProps>) {
     return (

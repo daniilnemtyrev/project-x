@@ -13,9 +13,11 @@
         "lint:ts": " eslint \"**/*.{ts,tsx}\"",
         "lint:ts:fix": " eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss:fix": " npx stylelint \"**/*.scss\" --fix",
-        "unit": "jest --config ./config/jest/jest.config.ts",
+        "test:jest": "jest --config ./config/jest/jest.config.ts",
+        "test:loki": "loki test",
         "storybook": "start-storybook -p 6006 -c ./config/storybook",
-        "build-storybook": "build-storybook -c ./config/storybook"
+        "build-storybook": "build-storybook -c ./config/storybook",
+        "l": "loki init --config ./config/storybook"
     },
     "author": "Nemtyrev Daniil",
     "license": "ISC",
@@ -62,12 +64,14 @@
         "html-webpack-plugin": "5.5.0",
         "identity-obj-proxy": "3.0.0",
         "jest": "27.5.1",
+        "loki": "^0.31.0",
         "mini-css-extract-plugin": "2.5.3",
         "prettier": "2.8.3",
         "react-refresh": "0.12.0",
         "regenerator-runtime": "^0.13.11",
         "sass": "1.49.9",
         "sass-loader": "12.6.0",
+        "storybook-addon-themes": "6.1.0",
         "style-loader": "3.3.1",
         "stylelint": "14.5.3",
         "stylelint-config-prettier-scss": "0.0.1",
@@ -89,5 +93,20 @@
         "react-dom": "17.0.2",
         "react-i18next": "11.15.5",
         "react-router-dom": "6.2.1"
+    },
+    "loki": {
+        "configurations": {
+            "chrome.laptop": {
+                "target": "chrome.app",
+                "width": 1366,
+                "height": 768,
+                "deviceScaleFactor": 1,
+                "mobile": false
+            },
+            "chrome.iphone7": {
+                "target": "chrome.app",
+                "preset": "iPhone 7"
+            }
+        }
     }
 }

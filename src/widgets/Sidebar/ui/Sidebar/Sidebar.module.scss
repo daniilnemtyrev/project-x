@@ -21,6 +21,10 @@
     gap: 20px;
 }
 
+.swicthers_collapsed {
+    flex-direction: column;
+}
+
 .toggle {
     border: 2px solid var(--inverted-primary-color);
     font: 1.1429rem/1rem;

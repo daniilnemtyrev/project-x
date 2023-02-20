@@ -4,15 +4,14 @@ import cls from './Button.module.scss'
 
 export enum ButtonVariants {
     CLEAR = 'clear',
+    OUTLINE = 'outline',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    className?: string
     variant?: ButtonVariants
 }
 
 export function Button({
-    className,
     variant = ButtonVariants.CLEAR,
     children,
     ...rest
@@ -22,7 +21,7 @@ export function Button({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
             type="button"
-            className={classNames(cls.button, {}, [className, cls[variant]])}
+            className={classNames(cls.button, {}, [cls[variant]])}
         >
             {children}
         </button>

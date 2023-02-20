@@ -34,7 +34,11 @@ export function Sidebar({ className }: PropsWithChildren<SidebarProps>) {
                 {!collapsed && t('sidebar.collapse')}
             </button>
 
-            <div className={cls.swicthers}>
+            <div
+                className={classNames(cls.swicthers, {
+                    [cls.swicthers_collapsed]: collapsed,
+                })}
+            >
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>
