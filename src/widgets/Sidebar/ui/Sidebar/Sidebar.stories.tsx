@@ -13,6 +13,4 @@ const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 export const Default = Template.bind({})
-Default.args = {
-    className: '',
-}
+Default.args = {}

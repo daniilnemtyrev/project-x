@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
-import { MainPage } from './MainPage.async'
+import MainPage from './MainPage'
 
 export default {
     title: 'pages/MainPage',

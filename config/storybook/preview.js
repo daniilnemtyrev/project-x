@@ -1,9 +1,8 @@
-import { addDecorator } from '@storybook/react'
 import { withThemes } from 'storybook-addon-themes/react'
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator.tsx'
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator.tsx'
-import { I18nextDecorator } from '../../src/shared/config/storybook/decorators/I18nextDecorator.tsx'
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator.tsx'
+import i18n from './i18next.js'
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -20,24 +19,17 @@ export const parameters = {
             { name: 'dark-theme', class: ['app', 'dark'], color: '#000' },
         ],
     },
-}
-
-export const globalTypes = {
-    locale: {
-        name: 'Locale',
-        description: 'Internationalization locale',
-        toolbar: {
-            icon: 'globe',
-            items: [
-                { value: 'en', title: 'English' },
-                { value: 'ru', title: 'Russian' },
-            ],
-        },
+    i18n,
+    locale: 'en',
+    locales: {
+        en: 'English',
+        ru: 'Russian',
     },
 }
 
-addDecorator(withThemes)
-addDecorator(StyleDecorator)
-addDecorator(ThemeDecorator)
-addDecorator(I18nextDecorator)
-addDecorator(RouterDecorator)
+export const decorators = [
+    withThemes,
+    StyleDecorator,
+    ThemeDecorator,
+    RouterDecorator,
+]

@@ -15,3 +15,4 @@ const Template: ComponentStory<typeof NotFoundPage> = (args) => (
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 export const Default = Template.bind({})
+Default.args = {}
