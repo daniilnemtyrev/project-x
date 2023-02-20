@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames'
 
 import { PropsWithChildren } from 'react'
-import { AppLink, AppLinkVarinats } from 'shared/ui'
+import { AppLink, AppLinkVariants } from 'shared/ui'
 import { useTranslation } from 'react-i18next'
 import cls from './Navbar.module.scss'
 
@@ -15,10 +15,10 @@ export function Navbar({ className }: PropsWithChildren<NavbarProps>) {
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.links}>
-                <AppLink variant={AppLinkVarinats.INVERTED} to="/">
+                <AppLink variant={AppLinkVariants.INVERTED} to="/">
                     {t('navbar.main')}
                 </AppLink>
-                <AppLink variant={AppLinkVarinats.INVERTED} to="/about">
+                <AppLink variant={AppLinkVariants.INVERTED} to="/about">
                     {t('navbar.about')}
                 </AppLink>
             </div>
