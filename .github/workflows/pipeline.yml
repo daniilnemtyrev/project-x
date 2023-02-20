@@ -36,7 +36,7 @@ jobs:
               run: npm run test:ui:ci
             - name: screenshots difference
               if: always()  
-              run: /
+              run: |
                 date > generated.txt
                 git config user.name daniilnemtyrev
                 git config user.email cool.dent2012@yandex.ru
