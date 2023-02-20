@@ -1,1 +1,1 @@
-export { AppLink, AppLinkVarinats } from "./AppLink/AppLink";
+export { AppLink, AppLinkVariants } from './AppLink/AppLink'
