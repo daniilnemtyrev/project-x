@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames'
 
 import type { PropsWithChildren } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button } from 'shared/ui/Button'
+import { Button, ButtonSizes } from 'shared/ui/Button'
 
 interface LangSwitcherProps {
     className?: string
@@ -21,6 +21,8 @@ export function LangSwitcher({
         <Button
             onClick={changeLang}
             className={classNames('', {}, [className])}
+            square={false}
+            size={ButtonSizes.L}
         >
             {t('language')}
         </Button>

@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ButtonVariants } from '.'
 
-import { Button } from './Button'
+import { Button, ButtonSizes, ButtonVariants } from './Button'
 
 export default {
     title: 'shared/Button',
@@ -9,13 +8,12 @@ export default {
     argTypes: {
         children: { control: 'text' },
         variant: { control: ButtonVariants },
+        size: { control: ButtonSizes },
+        square: { options: [true, false], control: { type: 'radio' } },
     },
 } as ComponentMeta<typeof Button>
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
-
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 
 export const Clear = Template.bind({})
 Clear.args = {
@@ -27,4 +25,35 @@ export const Outline = Template.bind({})
 Outline.args = {
     variant: ButtonVariants.OUTLINE,
     children: 'text',
+}
+
+export const Future = Template.bind({})
+Future.args = {
+    variant: ButtonVariants.FUTURE,
+    children: 'text',
+    square: false,
+}
+
+export const SquareS = Template.bind({})
+SquareS.args = {
+    variant: ButtonVariants.BACKGROUND_INVERT,
+    size: ButtonSizes.S,
+    children: 'text',
+    square: true,
+}
+
+export const SquareM = Template.bind({})
+SquareM.args = {
+    variant: ButtonVariants.BACKGROUND_INVERT,
+    size: ButtonSizes.M,
+    children: 'text',
+    square: true,
+}
+
+export const SquareL = Template.bind({})
+SquareL.args = {
+    variant: ButtonVariants.BACKGROUND_INVERT,
+    size: ButtonSizes.L,
+    children: 'text',
+    square: true,
 }

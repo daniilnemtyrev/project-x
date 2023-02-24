@@ -4,6 +4,9 @@ import { PropsWithChildren, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { useTranslation } from 'react-i18next'
+import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/Button'
+import { AppLink, AppLinkVariants } from 'shared/ui/AppLink'
+import { AboutIcon, MainIcon } from 'shared/assets/icons'
 import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
@@ -25,20 +28,37 @@ export function Sidebar({ className }: PropsWithChildren<SidebarProps>) {
             ])}
             data-testid="sidebar"
         >
-            <button
+            <Button
                 data-testid="sidebar-toggle"
-                className={cls.toggle}
                 type="button"
+                variant={ButtonVariants.FUTURE}
                 onClick={onToggle}
+                size={ButtonSizes.FULL}
             >
-                {!collapsed && t('sidebar.collapse')}
-            </button>
+                {!collapsed ? '<<<<<<' : '>>>'}
+            </Button>
 
-            <div
-                className={classNames(cls.swicthers, {
-                    [cls.swicthers_collapsed]: collapsed,
-                })}
-            >
+            <div className={cls.links}>
+                <AppLink
+                    className={cls.link}
+                    variant={AppLinkVariants.INVERTED}
+                    to="/"
+                >
+                    <MainIcon className={cls.icon} />
+                    <span>{t('navbar.main')}</span>
+                </AppLink>
+
+                <AppLink
+                    className={cls.link}
+                    variant={AppLinkVariants.INVERTED}
+                    to="/about"
+                >
+                    <AboutIcon className={cls.icon} />
+                    <span>{t('navbar.about')}</span>
+                </AppLink>
+            </div>
+
+            <div className={classNames(cls.swicthers)}>
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>

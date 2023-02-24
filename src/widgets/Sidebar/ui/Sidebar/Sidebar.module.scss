@@ -8,8 +8,29 @@
     flex-direction: column;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
+.links {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40px;
+    padding-left: 20px;
+
+    &:hover {
+        background: var(--primary-color);
+    }
+}
+
+.icon {
+    fill: var(--inverted-primary-color);
+    margin-right: 20px;
+    z-index: 1;
 }
 
 .swicthers {
@@ -21,74 +42,20 @@
     gap: 20px;
 }
 
-.swicthers_collapsed {
-    flex-direction: column;
+.link span {
+    transition: opacity 0.1s;
 }
 
-.toggle {
-    border: 2px solid var(--inverted-primary-color);
-    font: 1.1429rem/1rem;
-    background: none;
-    box-shadow: none;
-    color: white;
-    text-align: center;
-    padding: 0 2rem;
-    transition: all 0.3s;
-    cursor: pointer;
-    position: relative;
-    height: 3.2rem;
-    clip-path: polygon(
-        0% 10%,
-        70% 10%,
-        75% 0%,
-        100% 0%,
-        100% 93.6%,
-        28.2% 93.6%,
-        20% 100%,
-        0% 100%
-    );
+.collapsed {
+    width: var(--sidebar-width-collapsed);
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 10px;
-        left: 4.5px;
-        width: 0;
-        height: 0;
-        z-index: 1;
-        border-top: 10px solid var(--inverted-primary-color);
-        border-right: 10px solid transparent;
-        transition: all 0.3s;
+    .swicthers {
+        flex-direction: column;
+        align-items: center;
     }
 
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 10px;
-        right: 4.5px;
+    .link span {
+        opacity: 0;
         width: 0;
-        height: 0;
-        z-index: 1;
-        border-bottom: 10px solid var(--inverted-primary-color);
-        border-left: 10px solid transparent;
-        transition: all 0.3s;
-    }
-
-    &:hover {
-        color: var(--primary-color);
-        background-color: var(--inverted-primary-color);
-        border: 2px solid var(--primary-color);
-
-        &::after {
-            bottom: 1rem;
-            right: 0.875rem;
-            border-bottom: 10px solid var(--primary-color);
-        }
-
-        &::before {
-            top: 1rem;
-            left: 0.875rem;
-            border-top: 10px solid var(--primary-color);
-        }
     }
 }
