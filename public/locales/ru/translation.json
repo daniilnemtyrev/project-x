@@ -2,12 +2,13 @@
   "error": "Что-то пошло не так...",
   "language": "RU",
   "navbar": {
-    "about": "О нас",
-    "main": "Главная"
+    "signIn": "Войти"
   },
   "notFoundPage": "Страница не найдена",
   "sidebar": {
+    "about": "О нас",
     "collapse": "Свернуть",
+    "main": "Главная",
     "toggle": "toggle"
   }
 }

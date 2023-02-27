@@ -1,0 +1,42 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.2s linear;
+    transition-property: z-index, opacity;
+}
+
+.outline {
+    background: var(--outline-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.content {
+    background: var(--inverted-bg-color);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+    color: var(--inverted-primary-color);
+}
+
+.open {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: var(--modal-z-index);
+
+    .content {
+        transform: scale(1);
+    }
+}

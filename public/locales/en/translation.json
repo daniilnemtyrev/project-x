@@ -2,12 +2,13 @@
   "error": "Something went wrong...",
   "language": "EN",
   "navbar": {
-    "about": "About",
-    "main": "Main"
+    "signIn": "Sign in"
   },
   "notFoundPage": "Page not found",
   "sidebar": {
+    "about": "About",
     "collapse": "Collapse",
+    "main": "Main",
     "toggle": "toggle"
   }
 }

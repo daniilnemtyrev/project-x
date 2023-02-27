@@ -45,7 +45,7 @@ export function Sidebar({ className }: PropsWithChildren<SidebarProps>) {
                     to="/"
                 >
                     <MainIcon className={cls.icon} />
-                    <span>{t('navbar.main')}</span>
+                    <span>{t('sidebar.main')}</span>
                 </AppLink>
 
                 <AppLink
@@ -54,7 +54,7 @@ export function Sidebar({ className }: PropsWithChildren<SidebarProps>) {
                     to="/about"
                 >
                     <AboutIcon className={cls.icon} />
-                    <span>{t('navbar.about')}</span>
+                    <span>{t('sidebar.about')}</span>
                 </AppLink>
             </div>
 

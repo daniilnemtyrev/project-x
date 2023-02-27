@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames'
-import { useTheme } from 'shared/contexts/theme-context'
 import './styles/index.scss'
 import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
@@ -8,11 +7,9 @@ import { PageLoader } from 'widgets/PageLoader'
 import { AppRouter } from './providers/router'
 
 export function App() {
-    const { theme } = useTheme()
-
     return (
         <Suspense fallback={<PageLoader />}>
-            <div className={classNames('app', {}, [theme])}>
+            <div className={classNames('app')}>
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
