@@ -39,7 +39,8 @@ module.exports = {
         "import/no-extraneous-dependencies": 0,
         "react/function-component-definition": 0,
         "no-underscore-dangle": 0,
-        "i18next/no-literal-string": 1
+        "i18next/no-literal-string": 1,
+        "no-param-reassign": 0,
     },
     globals: {
         '__IS_DEV__': true
