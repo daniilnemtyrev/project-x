@@ -1,9 +1,13 @@
 {
-  "error": "Что-то пошло не так...",
-  "language": "RU",
-  "navbar": {
+  "auth": {
+    "enterPassword": "Введите пароль",
+    "enterUsername": "Введите имя пользователя"
+  },
+  "buttons": {
     "signIn": "Войти"
   },
+  "error": "Что-то пошло не так...",
+  "language": "RU",
   "notFoundPage": "Страница не найдена",
   "sidebar": {
     "about": "О нас",

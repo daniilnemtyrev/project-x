@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames'
 
-import { PropsWithChildren, useCallback, useState } from 'react'
+import { PropsWithChildren, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Modal } from 'shared/ui/Modal'
 import { Portal } from 'shared/ui/Portal'
-import { Button } from 'shared/ui/Button'
+import { Button, ButtonVariants } from 'shared/ui/Button'
+import { LoginModal } from 'features/AuthByUsername'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {
@@ -15,22 +15,27 @@ export function Navbar({ className }: PropsWithChildren<NavbarProps>) {
     const { t } = useTranslation()
     const [isOpen, setIsOpen] = useState(false)
 
-    const onSignIn = () => {
+    const openModal = () => {
         setIsOpen(true)
+    }
+
+    const closeModal = () => {
+        setIsOpen(false)
     }
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={classNames(cls.links)}>
-                <Button onClick={onSignIn}>{t('navbar.signIn')}</Button>
+                <Button
+                    variant={ButtonVariants.CLEAR_INVERTED}
+                    square={false}
+                    onClick={openModal}
+                >
+                    {t('buttons.signIn')}
+                </Button>
             </div>
             <Portal>
-                <Modal isOpen={isOpen} closeModal={() => setIsOpen(false)}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Commodi earum, fugiat dolore facilis sed pariatur eum quas
-                    porro eaque aut magnam reprehenderit iure delectus error
-                    praesentium hic asperiores eveniet consequatur?
-                </Modal>
+                <LoginModal isOpen={isOpen} closeModal={closeModal} />
             </Portal>
         </div>
     )

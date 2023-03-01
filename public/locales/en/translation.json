@@ -1,9 +1,13 @@
 {
-  "error": "Something went wrong...",
-  "language": "EN",
-  "navbar": {
+  "auth": {
+    "enterPassword": "Enter password",
+    "enterUsername": "Enter username"
+  },
+  "buttons": {
     "signIn": "Sign in"
   },
+  "error": "Something went wrong...",
+  "language": "EN",
   "notFoundPage": "Page not found",
   "sidebar": {
     "about": "About",

@@ -16,6 +16,11 @@
     padding: 0;
 }
 
+.clear_inverted {
+    padding: 0;
+    color: var(--inverted-primary-color);
+}
+
 .outline {
     border: 2px solid var(--primary-color);
 
@@ -118,7 +123,7 @@
 
 .square.small {
     width: calc(var(--font-line-s) * 5);
-    height: calc(var(--font-line-s) * 2.5);
+    height: calc(var(--font-line-s) * 2);
 }
 
 .square.medium {
