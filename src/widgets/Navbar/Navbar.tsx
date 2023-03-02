@@ -34,7 +34,7 @@ export function Navbar({ className }: PropsWithChildren<NavbarProps>) {
                     {t('buttons.signIn')}
                 </Button>
             </div>
-            <Portal>
+            <Portal containerId="login-modal">
                 <LoginModal isOpen={isOpen} closeModal={closeModal} />
             </Portal>
         </div>

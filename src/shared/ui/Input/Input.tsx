@@ -39,7 +39,6 @@ export function Input(props: InputProps) {
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange(e.target.value)
-        setCaretPosition(e.target.value.length)
     }
 
     const onSelectHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +55,6 @@ export function Input(props: InputProps) {
 
     useEffect(() => {
         if (autofocus) {
-            setIsFocus(true)
             inputRef.current?.focus()
         }
     }, [autofocus])
