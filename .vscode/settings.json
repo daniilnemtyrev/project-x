@@ -8,5 +8,8 @@
     "less.validate": false,
     "scss.validate": false,
     "stylelint.enable": true,
-    "stylelint.validate": ["scss"]
+    "stylelint.validate": ["scss"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
