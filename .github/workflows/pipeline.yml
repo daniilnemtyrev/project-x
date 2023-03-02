@@ -5,7 +5,7 @@ on:
     pull_request:
         branches: [master]
 jobs:
-    pipeline:
+    install-cache:
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -16,29 +16,169 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: ${{ matrix.node-version }}
-            - name: install modules
-              run: npm ci
-            - name: build production project
-              run: npm run build:prod
+            - name: Cache npm dependencies
+              uses: actions/cache@v3
+              id: cache-dependencies
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
+            - name: Install Dependencies
+              if: steps.cache-dependencies.outputs.cache-hit != 'true'
+              run: |
+                  npm ci
+    lint-ts:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [17.x]
+        needs: install-cache
+        steps:
+            - uses: actions/checkout@v3
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Restore yarn dependencies
+              uses: actions/cache@v3
+              id: cache-dependencies
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
             - name: linting typescript
               run: npm run lint:ts
+
+    lint-css:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [17.x]
+        needs: install-cache
+        steps:
+            - uses: actions/checkout@v3
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Restore yarn dependencies
+              uses: actions/cache@v3
+              id: cache-dependencies
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
             - name: linting css
               run: npm run lint:scss
+
+    unit-testing:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [17.x]
+        needs: install-cache
+        steps:
+            - uses: actions/checkout@v3
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Restore yarn dependencies
+              uses: actions/cache@v3
+              id: cache-dependencies
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
             - name: unit testing
               run: npm run test:unit
+
+    build-prod:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [17.x]
+        needs: [lint-ts, lint-css, unit-testing]
+        steps:
+            - uses: actions/checkout@v3
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Restore yarn dependencies
+              uses: actions/cache@v3
+              id: cache-dependencies
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
+            - name: build production
+              run: npm run build:prod
+
+    screenshot-testing:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [17.x]
+        needs: [lint-ts, lint-css, unit-testing]
+        steps:
+            - uses: actions/checkout@v3
+            - name: Staring Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: Restore yarn dependencies
+              uses: actions/cache@v3
+              id: cache-dependencies
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
             - name: build storybook
               run: npm run build:storybook
             - name: screenshot testing
               id: screenshots
               run: npm run test:ui:ci
-            - name: screenshots difference
-              if: ${{ steps.screenshots.conclusion == 'failure' }}
-              run: |
-                  date > generated.txt
-                  git config user.name daniilnemtyrev
-                  git config user.email cool.dent2012@yandex.ru
-                  git add -f .loki/difference
-                  git add .
-                  git checkout -b screenshots
-                  git commit -m "failure screensshots"
-                  git push -f origin screenshots
+        # pipeline:
+        #       runs-on: ubuntu-latest
+        #       strategy:
+        #           matrix:
+        #               node-version: [17.x]
+        #       steps:
+        #           - uses: actions/checkout@v3
+        #           - name: Staring Node.js ${{ matrix.node-version }}
+        #             uses: actions/setup-node@v3
+        #             with:
+        #                 node-version: ${{ matrix.node-version }}
+        #           - name: install modules
+        #             run: npm ci
+        #           - name: build production project
+        #             run: npm run build:prod
+        #           - name: linting typescript
+        #             run: npm run lint:ts
+        #           - name: linting css
+        #             run: npm run lint:scss
+        #           - name: unit testing
+        #             run: npm run test:unit
+        #           - name: build storybook
+        #             run: npm run build:storybook
+        #           - name: screenshot testing
+        #             id: screenshots
+        #             run: npm run test:ui:ci
+        #           - name: screenshots difference
+        #             if: ${{ steps.screenshots.conclusion == 'failure' }}
+        #             run: |
+        #                 date > generated.txt
+        #                 git config user.name daniilnemtyrev
+        #                 git config user.email cool.dent2012@yandex.ru
+        #                 git add -f .loki/difference
+        #                 git add .
+        #                 git checkout -b screenshots
+        #                 git commit -m "failure screensshots"
+        #                 git push -f origin screenshots
