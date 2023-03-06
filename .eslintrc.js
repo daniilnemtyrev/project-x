@@ -11,8 +11,8 @@ module.exports = {
         "plugin:import/recommended", 
         "airbnb", 
         "plugin:react/jsx-runtime", 
-        "prettier", 
-        "plugin:storybook/recommended"],
+        "plugin:storybook/recommended",
+        "prettier"],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -23,7 +23,6 @@ module.exports = {
     plugins: ["react", '@typescript-eslint', "i18next"],
     rules: {
         "react/jsx-indent": [2, 4],
-        "indent": [2, 4],
         "import/no-unresolved": 0,
         "react/require-default-props": 0,
         "import/prefer-default-export": 0,

@@ -2,6 +2,7 @@ import { withThemes } from 'storybook-addon-themes/react'
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator.tsx'
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator.tsx'
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator.tsx'
+import { StoreDecorator } from '../../src/shared/config/storybook/decorators/StoreDecorator.tsx'
 import i18n from './i18next.js'
 
 export const parameters = {
@@ -36,4 +37,18 @@ export const decorators = [
     StyleDecorator,
     ThemeDecorator,
     RouterDecorator,
+    StoreDecorator({
+        user: {
+            user: {
+                id: 1,
+                username: 'storybook',
+            },
+        },
+        login: {
+            username: 'storybook',
+            password: 'storybook',
+            isLoading: false,
+            error: '',
+        },
+    }),
 ]

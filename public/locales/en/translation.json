@@ -1,10 +1,13 @@
 {
   "auth": {
     "enterPassword": "Enter password",
-    "enterUsername": "Enter username"
+    "enterUsername": "Enter username",
+    "error": "Uncorrect login or password",
+    "title": "Authtorization"
   },
   "buttons": {
-    "signIn": "Sign in"
+    "signIn": "Sign in",
+    "signOut": "Sign out"
   },
   "error": "Something went wrong...",
   "language": "EN",

@@ -1,10 +1,13 @@
 {
   "auth": {
     "enterPassword": "Введите пароль",
-    "enterUsername": "Введите имя пользователя"
+    "enterUsername": "Введите имя пользователя",
+    "error": "Неверный логин или пароль",
+    "title": "Авторизация"
   },
   "buttons": {
-    "signIn": "Войти"
+    "signIn": "Войти",
+    "signOut": "Выйти"
   },
   "error": "Что-то пошло не так...",
   "language": "RU",

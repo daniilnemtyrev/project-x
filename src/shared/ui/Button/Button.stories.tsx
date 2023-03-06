@@ -10,6 +10,7 @@ export default {
         variant: { control: ButtonVariants },
         size: { control: ButtonSizes },
         square: { options: [true, false], control: { type: 'radio' } },
+        disabled: { options: [true, false], control: { type: 'radio' } },
     },
 } as ComponentMeta<typeof Button>
 
@@ -37,7 +38,13 @@ export const Future = Template.bind({})
 Future.args = {
     variant: ButtonVariants.FUTURE,
     children: 'text',
-    square: false,
+}
+
+export const FutureDisabled = Template.bind({})
+FutureDisabled.args = {
+    variant: ButtonVariants.FUTURE,
+    children: 'text',
+    disabled: true,
 }
 
 export const SquareS = Template.bind({})
