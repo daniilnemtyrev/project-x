@@ -4,7 +4,6 @@ import { User, UserSchema } from '../types/UserSchema'
 
 const initialState: UserSchema = {
     user: undefined,
-    isAuth: false,
 }
 
 export const userSlice = createSlice({
