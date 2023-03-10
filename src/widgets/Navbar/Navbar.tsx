@@ -7,7 +7,7 @@ import { Button, ButtonVariants } from 'shared/ui/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useSelector } from 'react-redux'
 import { userActions, userSelector } from 'entities/User'
-import { useAppDispatch } from 'shared/hooks'
+import { useAppDispatch } from 'shared/lib/hooks'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {

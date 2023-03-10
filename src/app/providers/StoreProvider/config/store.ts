@@ -23,7 +23,6 @@ export function creacteReduxStore(
 
     return store
 }
-const store = creacteReduxStore()
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof creacteReduxStore>['getState']
+export type AppDispatch = ReturnType<typeof creacteReduxStore>['dispatch']

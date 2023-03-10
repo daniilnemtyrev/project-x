@@ -4,7 +4,7 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { PageLoader } from 'widgets/PageLoader'
-import { useAppDispatch } from 'shared/hooks'
+import { useAppDispatch } from 'shared/lib/hooks'
 import { userActions } from 'entities/User'
 import { AppRouter } from './providers/router'
 
