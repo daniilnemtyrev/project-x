@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames'
-import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import { ButtonHTMLAttributes, memo, PropsWithChildren } from 'react'
 import cls from './Button.module.scss'
 
 export enum ButtonVariants {
@@ -24,14 +24,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     square?: boolean
 }
 
-export function Button({
-    variant = ButtonVariants.CLEAR,
-    size = ButtonSizes.M,
-    square = true,
-    children,
-    ...rest
-}: PropsWithChildren<ButtonProps>) {
-    return (
+export const Button = memo(
+    ({
+        variant = ButtonVariants.CLEAR,
+        size = ButtonSizes.M,
+        square = true,
+        children,
+        ...rest
+    }: PropsWithChildren<ButtonProps>) => (
         <button
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
@@ -44,4 +44,4 @@ export function Button({
             {children}
         </button>
     )
-}
+)

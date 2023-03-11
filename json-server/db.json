@@ -1,3 +1,13 @@
 {
-    "users": [{ "id": 1, "username": "1", "password": "1" }]
+    "users": [{ "id": 1, "username": "1", "password": "1" }],
+    "profile": {
+        "firstname": "Oliver",
+        "lastname": "Tree",
+        "age": 30,
+        "currency": "USD",
+        "country": "USA",
+        "city": "LA",
+        "username": "olya173",
+        "avatar": "https://i.ytimg.com/vi/hc8LS2jtHy4/maxresdefault.jpg"
+    }
 }

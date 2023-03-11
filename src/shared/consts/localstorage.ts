@@ -1,3 +1,1 @@
-const USER_DATA = 'user'
-
-export { USER_DATA }
+export const USER_DATA = 'user'

@@ -1,6 +1,7 @@
-import DarkIcon from 'shared/assets/icons/theme-dark.svg'
-import LightIcon from 'shared/assets/icons/theme-light.svg'
-import MainIcon from 'shared/assets/icons/main.svg'
-import AboutIcon from 'shared/assets/icons/about.svg'
+import LightIcon from './theme-light.svg'
+import MainIcon from './main.svg'
+import AboutIcon from './about.svg'
+import ProfileIcon from './profile.svg'
+import DarkIcon from './theme-dark.svg'
 
-export { DarkIcon, LightIcon, MainIcon, AboutIcon }
+export { DarkIcon, LightIcon, MainIcon, AboutIcon, ProfileIcon }

@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames'
 import {
     ChangeEvent,
     InputHTMLAttributes,
+    memo,
     useEffect,
     useRef,
     useState,
@@ -22,7 +23,7 @@ interface InputProps extends CustomHtmlInputProps {
 
 const charWidth = 9
 
-export function Input(props: InputProps) {
+export const Input = memo((props: InputProps) => {
     const {
         value,
         onChange,
@@ -83,4 +84,4 @@ export function Input(props: InputProps) {
             </div>
         </div>
     )
-}
+})

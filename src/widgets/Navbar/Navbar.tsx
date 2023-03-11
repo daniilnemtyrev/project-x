@@ -1,20 +1,20 @@
 import { classNames } from 'shared/lib/classNames'
 
-import { PropsWithChildren, useCallback, useState } from 'react'
+import { memo, PropsWithChildren, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Portal } from 'shared/ui/Portal'
 import { Button, ButtonVariants } from 'shared/ui/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useSelector } from 'react-redux'
 import { userActions, userSelector } from 'entities/User'
-import { useAppDispatch } from 'shared/lib/hooks'
+import { useAppDispatch } from 'shared/hooks'
 import cls from './Navbar.module.scss'
 
 interface NavbarProps {
     className?: string
 }
 
-export function Navbar({ className }: PropsWithChildren<NavbarProps>) {
+export const Navbar = memo(({ className }: PropsWithChildren<NavbarProps>) => {
     const { t } = useTranslation()
     const [isOpen, setIsOpen] = useState(false)
     const { user } = useSelector(userSelector)
@@ -59,4 +59,4 @@ export function Navbar({ className }: PropsWithChildren<NavbarProps>) {
             </Portal>
         </div>
     )
-}
+})

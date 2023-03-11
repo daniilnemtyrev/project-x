@@ -8,7 +8,7 @@ export default {
     component: LoginForm,
 } as ComponentMeta<typeof LoginForm>
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm />
+const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />
 
 export const Error = Template.bind({})
 Error.args = {}
