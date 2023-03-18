@@ -11,5 +11,6 @@
     "stylelint.validate": ["scss"],
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
-    }
+    },
+    "explorer.compactFolders": false
 }

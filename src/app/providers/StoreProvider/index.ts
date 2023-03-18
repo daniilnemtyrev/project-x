@@ -5,4 +5,6 @@ export type {
     ReduxStoreWithManager,
     ReducerListItem,
     ReducersList,
+    ThunkExtraArgs,
+    ThunkConfig,
 } from './config/StateSchema'

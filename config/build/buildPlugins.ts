@@ -10,6 +10,7 @@ export function buildPlugins({
     paths,
     isDev,
     isAnalyze,
+    apiUrl,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({
@@ -21,7 +22,8 @@ export function buildPlugins({
             chunkFilename: 'css/[name].[contenthash:8].css',
         }),
         new webpack.DefinePlugin({
-            __IS_DEV__: isDev,
+            __IS_DEV__: JSON.stringify(isDev),
+            __API_URL__: JSON.stringify(apiUrl),
         }),
         isDev && new ReactRefreshWebpackPlugin({ overlay: false }),
         isAnalyze && new BundleAnalyzerPlugin(),

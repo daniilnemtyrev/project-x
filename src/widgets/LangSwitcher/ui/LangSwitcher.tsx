@@ -13,7 +13,9 @@ export const LangSwitcher = memo(
         const { t, i18n } = useTranslation()
 
         const changeLang = async () => {
-            i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+            const newLng = i18n.language === 'ru' ? 'en' : 'ru'
+            i18n.changeLanguage(newLng)
+            localStorage.setItem('i18nextLng', newLng)
         }
 
         return (

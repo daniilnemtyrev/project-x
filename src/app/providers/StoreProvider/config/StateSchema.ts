@@ -6,9 +6,11 @@ import {
     DeepPartial,
 } from '@reduxjs/toolkit'
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
+import { AxiosInstance } from 'axios'
 import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername'
+import { NavigateFunction } from 'react-router-dom'
 
 export interface StateSchema {
     user: UserSchema
@@ -39,3 +41,13 @@ export type ReducersList = {
 export type ReducerListItem = [StateSchemaKey, Reducer]
 
 export type DeepPartialReducers = DeepPartial<ReducersMapObject<StateSchema>>
+
+export interface ThunkExtraArgs {
+    api: AxiosInstance
+    navigate: NavigateFunction
+}
+
+export interface ThunkConfig<T> {
+    rejectValue: T
+    extra: ThunkExtraArgs
+}
