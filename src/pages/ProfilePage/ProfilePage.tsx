@@ -1,6 +1,5 @@
 import { ReducersList } from 'app/providers/StoreProvider'
-import { profileReducer } from 'entities/Profile'
-import { useTranslation } from 'react-i18next'
+import { ProfileCard, profileReducer } from 'entities/Profile'
 import { useReducerManager } from 'shared/hooks'
 
 const asyncReducers: ReducersList = {
@@ -8,10 +7,13 @@ const asyncReducers: ReducersList = {
 }
 
 function ProfilePage() {
-    useReducerManager(asyncReducers)
-    const { t } = useTranslation('profile')
+    // useReducerManager(asyncReducers)
 
-    return <div>{t('title', { ns: 'profile' })}</div>
+    return (
+        <div>
+            <ProfileCard />
+        </div>
+    )
 }
 
 export default ProfilePage

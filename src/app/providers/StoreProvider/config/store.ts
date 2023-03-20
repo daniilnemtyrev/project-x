@@ -1,4 +1,5 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
+import { profileReducer } from 'entities/Profile'
 import { userReducer } from 'entities/User'
 import { NavigateFunction } from 'react-router-dom'
 import { $api } from 'shared/api'
@@ -13,6 +14,7 @@ export function creacteReduxStore(
     const staticReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         user: userReducer,
+        profile: profileReducer,
     }
     const reducerManager = createReducerManager(staticReducers)
 

@@ -17,7 +17,7 @@ type CustomHtmlInputProps = Omit<
 interface InputProps extends CustomHtmlInputProps {
     value: string
     onChange: (value: string) => void
-    label: string
+    label?: string
     autofocus?: boolean
 }
 
@@ -47,7 +47,9 @@ export const Input = memo((props: InputProps) => {
     }
 
     const onFocusHandler = () => {
-        setIsFocus(true)
+        if (!rest.readOnly) {
+            setIsFocus(true)
+        }
     }
 
     const onBlurHandler = () => {

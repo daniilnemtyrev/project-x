@@ -1,3 +1,8 @@
 {
+  "edit": "Edit",
+  "form": {
+    "firstname": "Firstname",
+    "lastname": "Lastname"
+  },
   "title": "Profile"
 }
