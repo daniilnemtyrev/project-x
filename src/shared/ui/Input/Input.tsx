@@ -15,7 +15,7 @@ type CustomHtmlInputProps = Omit<
 >
 
 interface InputProps extends CustomHtmlInputProps {
-    value: string
+    value?: string
     onChange: (value: string) => void
     label?: string
     autofocus?: boolean
@@ -43,7 +43,9 @@ export const Input = memo((props: InputProps) => {
     }
 
     const onSelectHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCaretPosition(e.target.selectionStart)
+        if (e.target.selectionStart) {
+            setCaretPosition(e.target.selectionStart)
+        }
     }
 
     const onFocusHandler = () => {

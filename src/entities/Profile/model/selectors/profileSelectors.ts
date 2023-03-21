@@ -1,9 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 
-export const profileState = (state: StateSchema) => state.profile
+export const getProfileState = (state: StateSchema) => state.profile
 
-export const profile = (state: StateSchema) => profileState(state).profile
+export const getProfileData = (state: StateSchema) => state.profile?.profile
 
-export const isLoading = (state: StateSchema) => profileState(state).isLoading
+export const getProfileIsLoading = (state: StateSchema) =>
+    state.profile?.isLoading
 
-export const error = (state: StateSchema) => profileState(state).error
+export const getProfileError = (state: StateSchema) => state.profile?.error

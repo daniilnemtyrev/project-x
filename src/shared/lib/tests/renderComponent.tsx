@@ -12,10 +12,10 @@ export function renderComponent(
     routes: string[] = ['/']
 ) {
     return render(
-        <StoreProvider initialState={initialState}>
-            <MemoryRouter initialEntries={routes}>
+        <MemoryRouter initialEntries={routes}>
+            <StoreProvider initialState={initialState}>
                 <I18nextProvider i18n={i18n}>{component}</I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </MemoryRouter>
     )
 }

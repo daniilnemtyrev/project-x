@@ -7,4 +7,5 @@ export type {
     ReducersList,
     ThunkExtraArgs,
     ThunkConfig,
+    StateSchemaKey,
 } from './config/StateSchema'

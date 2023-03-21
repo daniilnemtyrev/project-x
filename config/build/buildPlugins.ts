@@ -25,7 +25,7 @@ export function buildPlugins({
             __IS_DEV__: JSON.stringify(isDev),
             __API_URL__: JSON.stringify(apiUrl),
         }),
-        isDev && new ReactRefreshWebpackPlugin({ overlay: false }),
-        isAnalyze && new BundleAnalyzerPlugin(),
+        ...(isDev ? [new ReactRefreshWebpackPlugin({ overlay: false })] : []),
+        ...(isAnalyze ? [new BundleAnalyzerPlugin()] : []),
     ].filter(Boolean)
 }

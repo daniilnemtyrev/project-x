@@ -44,7 +44,7 @@ export type DeepPartialReducers = DeepPartial<ReducersMapObject<StateSchema>>
 
 export interface ThunkExtraArgs {
     api: AxiosInstance
-    navigate: NavigateFunction
+    navigate?: NavigateFunction
 }
 
 export interface ThunkConfig<T> {

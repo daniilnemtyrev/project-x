@@ -10,7 +10,7 @@ interface PortalProps {
 export function Portal(props: PortalProps) {
     const { children, containerId = 'portal-container' } = props
 
-    const [container, setContainer] = useState(null)
+    const [container, setContainer] = useState<HTMLElement | null>(null)
 
     useLayoutEffect(() => {
         let element = document.getElementById(containerId)
@@ -23,7 +23,7 @@ export function Portal(props: PortalProps) {
         setContainer(element)
 
         return () => {
-            if (systemCreated && element.parentNode) {
+            if (systemCreated && element?.parentNode) {
                 element.parentNode.removeChild(element)
             }
         }

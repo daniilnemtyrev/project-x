@@ -2,6 +2,7 @@ import {
     ReducerListItem,
     ReducersList,
     ReduxStoreWithManager,
+    StateSchemaKey,
 } from 'app/providers/StoreProvider'
 import { useStore } from 'react-redux'
 import { useEffect } from 'react'
@@ -16,15 +17,15 @@ export const useReducerManager = (
     const store = useStore() as ReduxStoreWithManager
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name, reducer]: ReducerListItem) => {
-            store.reducerManager.add(name, reducer)
+        Object.entries(reducers).forEach(([name, reducer]) => {
+            store.reducerManager.add(name as StateSchemaKey, reducer)
             dispatch({ type: `@INIT ${name} reducer` })
         })
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([name]: ReducerListItem) => {
-                    store.reducerManager.remove(name)
+                Object.entries(reducers).forEach(([name]) => {
+                    store.reducerManager.remove(name as StateSchemaKey)
                     dispatch({ type: `@REMOVE ${name} reducer` })
                 })
             }

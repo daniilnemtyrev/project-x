@@ -1,13 +1,20 @@
 import { ReducersList } from 'app/providers/StoreProvider'
 import { ProfileCard, profileReducer } from 'entities/Profile'
-import { useReducerManager } from 'shared/hooks'
+import { fetchProfileThunk } from 'entities/Profile/model/services/fetchProfileThunk'
+import { useEffect } from 'react'
+import { useAppDispatch, useReducerManager } from 'shared/hooks'
 
 const asyncReducers: ReducersList = {
     profile: profileReducer,
 }
 
 function ProfilePage() {
-    // useReducerManager(asyncReducers)
+    useReducerManager(asyncReducers)
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(fetchProfileThunk())
+    }, [dispatch])
 
     return (
         <div>

@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof Loader>
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />
+const Template: ComponentStory<typeof Loader> = () => <Loader />
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 
