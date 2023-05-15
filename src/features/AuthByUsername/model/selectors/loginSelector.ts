@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider'
-import { loginInitialState } from '../slice/loginSlice'
 
-export const loginSelector = (state: StateSchema) =>
-    state?.login || loginInitialState
+export const getLoginError = (state: StateSchema) => state.login?.error
+
+export const getLoginIsLoading = (state: StateSchema) => state.login?.isLoading

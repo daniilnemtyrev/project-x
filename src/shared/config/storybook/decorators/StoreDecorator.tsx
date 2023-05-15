@@ -5,8 +5,8 @@ import {
     StoreProvider,
     ReducersList,
 } from 'app/providers/StoreProvider'
-import { profileReducer } from 'entities/Profile'
 import { loginReducer } from 'features/AuthByUsername'
+import { profileReducer } from 'features/EditableProfileCard'
 
 const defaultAsyncReducers: ReducersList = {
     login: loginReducer,

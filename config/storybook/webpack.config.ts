@@ -13,7 +13,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
         src: path.resolve(__dirname, '../../src'),
     }
 
-    config.resolve?.modules?.push(paths.src)
+    if (config!.resolve!.modules) {
+        config!.resolve!.modules = [paths.src, 'node_modules']
+    }
+
     config.resolve?.extensions?.push('.ts', '.tsx')
     config.module?.rules?.push(cssLoader(true))
 
@@ -36,6 +39,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(false),
             __API_URL__: JSON.stringify(''),
+            __PROJECT__: JSON.stringify('storybook'),
         })
     )
 

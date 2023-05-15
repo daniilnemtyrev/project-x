@@ -15,10 +15,20 @@ SignInNavbar.args = {}
 SignInNavbar.decorators = [
     StoreDecorator({
         user: {
-            user: undefined,
+            user: {
+                id: 1,
+                username: 'user',
+            },
         },
     }),
 ]
 
 export const SignOutNavbar = Template.bind({})
 SignOutNavbar.args = {}
+SignOutNavbar.decorators = [
+    StoreDecorator({
+        user: {
+            user: undefined,
+        },
+    }),
+]

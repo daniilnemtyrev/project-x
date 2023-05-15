@@ -12,7 +12,7 @@ export function LoginModal({ isOpen, closeModal }: LoginModalProps) {
     return (
         <Modal isOpen={isOpen} closeModal={closeModal}>
             <Suspense fallback={<Loader />}>
-                <LoginForm />
+                <LoginForm closeHandler={closeModal} />
             </Suspense>
         </Modal>
     )

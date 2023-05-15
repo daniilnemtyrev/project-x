@@ -1,0 +1,9 @@
+.formik_input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.error {
+    color: var(--red-light);
+}

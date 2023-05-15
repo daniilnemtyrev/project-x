@@ -1,27 +1,15 @@
 import { classNames } from 'shared/lib/classNames'
-import {
-    ChangeEvent,
-    InputHTMLAttributes,
-    memo,
-    useEffect,
-    useRef,
-    useState,
-} from 'react'
+import { InputHTMLAttributes, memo, useEffect, useRef } from 'react'
 import cls from './Input.module.scss'
 
-type CustomHtmlInputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange'
->
+type CustomHtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value'>
 
 interface InputProps extends CustomHtmlInputProps {
-    value?: string
-    onChange: (value: string) => void
+    value?: string | number | readonly string[]
     label?: string
     autofocus?: boolean
+    readonly?: boolean
 }
-
-const charWidth = 9
 
 export const Input = memo((props: InputProps) => {
     const {
@@ -31,61 +19,30 @@ export const Input = memo((props: InputProps) => {
         label,
         type = 'text',
         autofocus,
+        readonly,
         ...rest
     } = props
 
-    const [isFocused, setIsFocus] = useState(false)
-    const [caretPosition, setCaretPosition] = useState(0)
     const inputRef = useRef<HTMLInputElement>(null)
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange(e.target.value)
-    }
-
-    const onSelectHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.selectionStart) {
-            setCaretPosition(e.target.selectionStart)
-        }
-    }
-
-    const onFocusHandler = () => {
-        if (!rest.readOnly) {
-            setIsFocus(true)
-        }
-    }
-
-    const onBlurHandler = () => {
-        setIsFocus(false)
-    }
-
     useEffect(() => {
-        if (autofocus) {
+        if (autofocus && !readonly) {
             inputRef.current?.focus()
         }
-    }, [autofocus])
+    }, [autofocus, readonly])
 
     return (
         <div className={classNames(cls.wrapper)}>
             <label htmlFor={id}>{`${label}>`}</label>
-            <div className={classNames(cls.caretWrapper)}>
-                <input
-                    ref={inputRef}
-                    value={value}
-                    onChange={onChangeHandler}
-                    className={classNames(cls.input)}
-                    type={type}
-                    onFocus={onFocusHandler}
-                    onSelect={onSelectHandler}
-                    onBlur={onBlurHandler}
-                    {...rest}
-                />
-                {isFocused && (
-                    <span
-                        className={classNames(cls.caret)}
-                        style={{ left: caretPosition * charWidth }}
-                    />
-                )}
-            </div>
+            <input
+                ref={inputRef}
+                value={value}
+                onChange={onChange}
+                className={classNames(cls.input)}
+                type={type}
+                readOnly={readonly}
+                {...rest}
+            />
         </div>
     )
 })

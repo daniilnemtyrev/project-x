@@ -1,8 +1,15 @@
 {
+  "cancel": "Cancel",
   "edit": "Edit",
   "form": {
+    "age": "Age",
+    "avatar": "Avatar URL",
+    "city": "City",
+    "country": "Choose country",
+    "currency": "Choose currency",
     "firstname": "Firstname",
     "lastname": "Lastname"
   },
+  "save": "Save",
   "title": "Profile"
 }

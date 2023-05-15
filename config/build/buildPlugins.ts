@@ -11,6 +11,7 @@ export function buildPlugins({
     isDev,
     isAnalyze,
     apiUrl,
+    project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({
@@ -24,8 +25,9 @@ export function buildPlugins({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API_URL__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
-        ...(isDev ? [new ReactRefreshWebpackPlugin({ overlay: false })] : []),
+        ...(isDev ? [new ReactRefreshWebpackPlugin()] : []),
         ...(isAnalyze ? [new BundleAnalyzerPlugin()] : []),
     ].filter(Boolean)
 }

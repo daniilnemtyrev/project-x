@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { classNames } from 'shared/lib/classNames'
-import {
+import React, {
     PropsWithChildren,
+    cloneElement,
     useCallback,
     useEffect,
     useRef,

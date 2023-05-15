@@ -4,8 +4,8 @@ import { User, userActions } from 'entities/User'
 import { USER_DATA } from 'shared/consts'
 
 interface LoginProps {
-    username: string
-    password: string
+    username?: string
+    password?: string
 }
 
 export const login = createAsyncThunk<User, LoginProps, ThunkConfig<string>>(

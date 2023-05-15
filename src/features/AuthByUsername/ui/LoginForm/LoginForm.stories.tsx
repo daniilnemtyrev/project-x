@@ -15,8 +15,6 @@ Error.args = {}
 Error.decorators = [
     StoreDecorator({
         login: {
-            username: 'storybook',
-            password: 'storybook',
             isLoading: false,
             error: 'ERROR',
         },
@@ -24,17 +22,20 @@ Error.decorators = [
 ]
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.decorators = [
+    StoreDecorator({
+        login: {
+            isLoading: false,
+        },
+    }),
+]
 
 export const Loading = Template.bind({})
 Loading.args = {}
 Loading.decorators = [
     StoreDecorator({
         login: {
-            username: 'storybook',
-            password: 'storybook',
             isLoading: true,
-            error: '',
         },
     }),
 ]

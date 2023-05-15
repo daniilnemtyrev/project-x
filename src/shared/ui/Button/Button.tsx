@@ -6,6 +6,7 @@ export enum ButtonVariants {
     CLEAR = 'clear',
     CLEAR_INVERTED = 'clear_inverted',
     OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
     FUTURE = 'future',
     BACKGROUND = 'background',
     BACKGROUND_INVERT = 'background_invert',
@@ -30,16 +31,16 @@ export const Button = memo(
         size = ButtonSizes.M,
         square = true,
         children,
+        type = 'button',
         ...rest
     }: PropsWithChildren<ButtonProps>) => (
         <button
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...rest}
-            type="button"
             className={classNames(cls.button, { [cls.square]: square }, [
                 cls[variant],
                 cls[size],
             ])}
+            type={type}
+            {...rest}
         >
             {children}
         </button>

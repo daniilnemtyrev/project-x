@@ -29,7 +29,7 @@ module.exports = {
         "react/jsx-filename-extension": [1, {
             "extensions": [".tsx", ".jsx"]
         }],
-        "react/button-has-type": 1,
+        "react/button-has-type": 0,
         "no-unused-vars": 0,
         "@typescript-eslint/no-unused-vars": 1,
         "react/jsx-props-no-spreading": 0,
@@ -44,6 +44,7 @@ module.exports = {
     globals: {
         '__IS_DEV__': true,
         '__API_URL__': true,
+        '__PROJECT__': true,
     },
     overrides: [{
         files: ["**/src/**/*.test.{ts,tsx}"],

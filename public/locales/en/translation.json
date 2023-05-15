@@ -10,6 +10,9 @@
     "signOut": "Sign out"
   },
   "error": "Something went wrong...",
+  "form": {
+    "country": "country"
+  },
   "language": "EN",
   "notFoundPage": "Page not found",
   "sidebar": {
@@ -18,5 +21,6 @@
     "main": "Main",
     "profile": "Profile"
   },
-  "title": "title"
+  "title": "title",
+  "Укажите валюту": "Укажите валюту"
 }

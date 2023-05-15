@@ -8,27 +8,12 @@
     }
 }
 
-.caretWrapper {
-    position: relative;
-}
-
 .input {
     background: none;
     outline: none;
     border: none;
-    caret-color: transparent;
     width: 100%;
     color: var(--inverted-primary-color);
-}
-
-.caret {
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    width: 9px;
-    height: 3px;
-    background: var(--inverted-primary-color);
-    animation: blink 1s forwards infinite;
 }
 
 @keyframes blink {

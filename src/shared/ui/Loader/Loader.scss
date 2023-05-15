@@ -1,8 +1,16 @@
+.lds-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .lds-facebook {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
+    justify-self: center;
 }
 
 .lds-facebook div {
@@ -10,7 +18,7 @@
     position: absolute;
     left: 8px;
     width: 16px;
-    background: var(--inverted-bg-color);
+    background: var(--inverted-primary-color);
     animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 

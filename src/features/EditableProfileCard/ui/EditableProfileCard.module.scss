@@ -1,0 +1,8 @@
+.editableProfileCard {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 20px;
+    border: 1px solid var(--primary-color);
+    max-width: 800px;
+}
