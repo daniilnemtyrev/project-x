@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { CurrencyEnum } from 'entities/CurrencySelect'
 import { CountryEnum } from 'entities/CountrySelect'
-import { fetchProfileThunk } from '../services/fetchProfileThunk'
-import { Profile, ProfileSchema } from '../types/profile'
-import { updateProfileThunk } from '../services/updateProfileThunk'
+import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
+import { ProfileSchema } from '../types/profile'
+import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 
 const initialState: ProfileSchema = {
     profile: {
@@ -31,32 +31,33 @@ export const profileSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProfileThunk.pending, (state) => {
+            .addCase(fetchProfileData.pending, (state) => {
                 state.error = undefined
                 state.isLoading = true
             })
 
-            .addCase(fetchProfileThunk.fulfilled, (state, action) => {
+            .addCase(fetchProfileData.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.profile = action.payload
             })
 
-            .addCase(fetchProfileThunk.rejected, (state, action) => {
+            .addCase(fetchProfileData.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action.payload
             })
 
-            .addCase(updateProfileThunk.pending, (state) => {
+            .addCase(updateProfileData.pending, (state) => {
                 state.error = undefined
                 state.isLoading = true
             })
 
-            .addCase(updateProfileThunk.fulfilled, (state, action) => {
+            .addCase(updateProfileData.fulfilled, (state, action) => {
                 state.isLoading = false
                 state.profile = action.payload
+                state.error = undefined
             })
 
-            .addCase(updateProfileThunk.rejected, (state, action) => {
+            .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action.payload
             })

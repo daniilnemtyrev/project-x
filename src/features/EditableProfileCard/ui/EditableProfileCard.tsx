@@ -8,11 +8,11 @@ import { Loader } from 'shared/ui/Loader'
 import cls from './EditableProfileCard.module.scss'
 import { Header } from './header/header'
 import {
-    getProfileForm,
+    getProfile,
     getProfileIsLoading,
 } from '../model/selectors/profileSelectors'
 import { Profile } from '../model/types/profile'
-import { updateProfileThunk } from '../model/services/updateProfileThunk'
+import { updateProfileData } from '../model/services/updateProfileData/updateProfileData'
 import { profileValidation } from '../utils/schemas'
 
 interface Props {
@@ -20,16 +20,20 @@ interface Props {
 }
 
 export function EditableProfileCard({ className }: Props) {
-    const initialValues = useSelector(getProfileForm)
+    const initialValues = useSelector(getProfile)
     const isLoading = useSelector(getProfileIsLoading)
     const dispatch = useAppDispatch()
 
     const onSubmitHandler = (values: Profile) => {
-        dispatch(updateProfileThunk({ values }))
+        dispatch(updateProfileData({ values }))
     }
 
     if (isLoading || !initialValues) {
-        return <Loader />
+        return (
+            <div className={classNames(cls.editableProfileCard)}>
+                <Loader />
+            </div>
+        )
     }
 
     return (

@@ -2,7 +2,7 @@ import { StateSchema } from 'app/providers/StoreProvider'
 
 export const getProfileState = (state: StateSchema) => state.profile
 
-export const getProfileForm = (state: StateSchema) => state.profile?.profile
+export const getProfile = (state: StateSchema) => state.profile?.profile
 
 export const getProfileIsLoading = (state: StateSchema) =>
     state.profile?.isLoading

@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkConfig } from 'app/providers/StoreProvider'
-import { Profile } from '../types/profile'
+import { Profile } from '../../types/profile'
 
-export const updateProfileThunk = createAsyncThunk<
+export const updateProfileData = createAsyncThunk<
     Profile,
     { values: Profile },
     ThunkConfig<string>
@@ -12,6 +12,10 @@ export const updateProfileThunk = createAsyncThunk<
 
     try {
         const response = await extra.api.put<Profile>('/profile', values)
+
+        if (!response.data) {
+            throw new Error()
+        }
 
         return response.data
     } catch (e) {

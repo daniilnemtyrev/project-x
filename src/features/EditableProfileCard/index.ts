@@ -1,8 +1,8 @@
 export { EditableProfileCard } from './ui/EditableProfileCard'
 export { profileActions, profileReducer } from './model/slice/profileSlice'
-export { fetchProfileThunk } from './model/services/fetchProfileThunk'
+export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData'
 export {
-    getProfileForm,
+    getProfile,
     getProfileIsLoading,
     getProfileError,
     getProfileReadonly,

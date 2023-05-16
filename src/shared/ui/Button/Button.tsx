@@ -35,12 +35,12 @@ export const Button = memo(
         ...rest
     }: PropsWithChildren<ButtonProps>) => (
         <button
+            {...rest}
             className={classNames(cls.button, { [cls.square]: square }, [
                 cls[variant],
                 cls[size],
             ])}
             type={type}
-            {...rest}
         >
             {children}
         </button>

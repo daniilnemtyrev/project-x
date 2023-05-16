@@ -15,22 +15,10 @@ export default {
 const Template: ComponentStory<typeof ProfileCard> = () => <ProfileCard />
 
 export const Default = Template.bind({})
-Default.args = {
-    values: {
-        firstname: 'Lupa',
-        lastname: 'Pupov',
-        age: 22,
-        currency: CurrencyEnum.RUB,
-        country: CountryEnum.RU,
-        city: 'Balance',
-        username: 'Lol',
-        avatar,
-    },
-}
+
 Default.decorators = [
     StoreDecorator({
         profile: {
-            isLoading: false,
             readonly: true,
         },
     }),

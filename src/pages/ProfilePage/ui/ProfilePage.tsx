@@ -2,7 +2,7 @@ import { ReducersList } from 'app/providers/StoreProvider'
 import {
     EditableProfileCard,
     profileReducer,
-    fetchProfileThunk,
+    fetchProfileData,
     getProfileError,
 } from 'features/EditableProfileCard'
 import { useEffect } from 'react'
@@ -21,7 +21,7 @@ function ProfilePage() {
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileThunk())
+            dispatch(fetchProfileData())
         }
     }, [dispatch])
 

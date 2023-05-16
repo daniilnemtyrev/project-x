@@ -34,14 +34,24 @@ Default.decorators = [
             readonly: true,
         },
     }),
-    FormikDecorator<Profile>({
-        firstname: 'Lupa',
-        lastname: 'Pupov',
-        age: 22,
-        currency: CurrencyEnum.RUB,
-        country: CountryEnum.RU,
-        city: 'Balance',
-        username: 'Lol',
-        avatar,
+]
+
+export const Loading = Template.bind({})
+Loading.decorators = [
+    StoreDecorator({
+        profile: {
+            profile: {
+                firstname: 'Lupa',
+                lastname: 'Pupov',
+                age: 22,
+                currency: CurrencyEnum.RUB,
+                country: CountryEnum.RU,
+                city: 'Balance',
+                username: 'Lol',
+                avatar,
+            },
+            isLoading: true,
+            readonly: true,
+        },
     }),
 ]
