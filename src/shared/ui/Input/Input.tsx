@@ -15,11 +15,11 @@ export const Input = memo((props: InputProps) => {
     const {
         value,
         onChange,
-        id,
         label,
         type = 'text',
         autofocus,
         readonly,
+        name,
         ...rest
     } = props
 
@@ -33,7 +33,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div className={classNames(cls.wrapper)}>
-            <label htmlFor={id}>{`${label}>`}</label>
+            <label htmlFor={name}>{`${label}>`}</label>
             <input
                 ref={inputRef}
                 value={value}
@@ -41,6 +41,7 @@ export const Input = memo((props: InputProps) => {
                 className={classNames(cls.input)}
                 type={type}
                 readOnly={readonly}
+                id={name}
                 {...rest}
             />
         </div>

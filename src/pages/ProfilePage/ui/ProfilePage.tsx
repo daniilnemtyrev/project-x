@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import { useAppDispatch, useReducerManager } from 'shared/hooks'
 import { useSelector } from 'react-redux'
 import { PageError } from 'widgets/PageError'
+import cls from './ProfilePage.module.scss'
 
 const asyncReducers: ReducersList = {
     profile: profileReducer,
@@ -30,7 +31,7 @@ function ProfilePage() {
     }
 
     return (
-        <div>
+        <div className={cls.profilePage}>
             <EditableProfileCard />
         </div>
     )

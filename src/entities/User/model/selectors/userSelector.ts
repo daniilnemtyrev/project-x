@@ -1,3 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider'
 
-export const userSelector = (state: StateSchema) => state.user
+export const getUserData = (state: StateSchema) => state.user.user
+export const getInited = (state: StateSchema) => state.user._inited

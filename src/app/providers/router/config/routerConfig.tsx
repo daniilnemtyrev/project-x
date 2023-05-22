@@ -11,7 +11,11 @@ export enum AppRoutes {
     NOT_FOUND = '*',
 }
 
-export const routes: RouteProps[] = [
+export interface AppRouteProps extends RouteProps {
+    authOnly?: boolean
+}
+
+export const routes: AppRouteProps[] = [
     {
         path: AppRoutes.MAIN,
         element: <MainPage />,
@@ -24,6 +28,7 @@ export const routes: RouteProps[] = [
     {
         path: AppRoutes.PROFILE,
         element: <ProfilePage />,
+        authOnly: true,
     },
     {
         path: AppRoutes.NOT_FOUND,

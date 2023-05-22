@@ -4,6 +4,7 @@ import { memo, PropsWithChildren, useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/Button'
+
 import cls from './Sidebar.module.scss'
 import { sidebarItemsList } from '../../model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'

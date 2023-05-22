@@ -5,12 +5,14 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { PageLoader } from 'widgets/PageLoader'
 import { useAppDispatch } from 'shared/hooks'
-import { userActions } from 'entities/User'
+import { getInited, userActions } from 'entities/User'
+import { useSelector } from 'react-redux'
 import { AppRouter } from './providers/router'
 
 export function App() {
     const dispatch = useAppDispatch()
     const { initUser } = userActions
+    const inited = useSelector(getInited)
 
     useEffect(() => {
         dispatch(initUser())
@@ -22,7 +24,7 @@ export function App() {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </div>
         </Suspense>
