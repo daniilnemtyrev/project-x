@@ -2,4 +2,8 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    & label {
+        color: var(--inverted-primary-color);
+    }
 }

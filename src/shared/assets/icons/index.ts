@@ -5,3 +5,4 @@ import ProfileIcon from './profile.svg'
 import DarkIcon from './theme-dark.svg'
 
 export { DarkIcon, LightIcon, MainIcon, AboutIcon, ProfileIcon }
+export { ThemeIcon } from './ThemeIcon'

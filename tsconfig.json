@@ -12,6 +12,8 @@
         "paths": {
             "*": ["./src/*"]
         },
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "plugins": [{ "name": "typescript-plugin-css-modules" }]
