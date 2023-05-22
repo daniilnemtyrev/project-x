@@ -21,13 +21,13 @@ export const Navbar = memo(({ className }: PropsWithChildren<NavbarProps>) => {
     const dispath = useAppDispatch()
     const { logout } = userActions
 
-    const openModal = () => {
+    const openModal = useCallback(() => {
         setIsOpen(true)
-    }
+    }, [])
 
-    const closeModal = () => {
+    const closeModal = useCallback(() => {
         setIsOpen(false)
-    }
+    }, [])
 
     const signOutHandler = useCallback(() => {
         dispath(logout())
@@ -54,9 +54,11 @@ export const Navbar = memo(({ className }: PropsWithChildren<NavbarProps>) => {
                     </Button>
                 )}
             </div>
-            <Portal containerId="login-modal">
-                <LoginModal isOpen={isOpen} closeModal={closeModal} />
-            </Portal>
+            {isOpen && (
+                <Portal containerId="login-modal">
+                    <LoginModal isOpen={isOpen} closeModal={closeModal} />
+                </Portal>
+            )}
         </div>
     )
 })

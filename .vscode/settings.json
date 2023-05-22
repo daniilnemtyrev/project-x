@@ -12,5 +12,8 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "files.associations": {
+        "**/.fttemplates/**": "plaintext"
+    }
 }

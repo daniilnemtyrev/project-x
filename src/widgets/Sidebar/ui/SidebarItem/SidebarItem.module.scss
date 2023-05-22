@@ -4,9 +4,10 @@
     height: 40px;
     padding-left: 20px;
     gap: 20px;
+    color: var(--inverted-primary-color);
 
     &:hover {
-        background: var(--primary-color);
+        background: var(--inverted-secondary-color);
     }
 }
 

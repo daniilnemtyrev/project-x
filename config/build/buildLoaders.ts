@@ -1,35 +1,27 @@
 import webpack from 'webpack'
+import ReactRefreshTypeScript from 'react-refresh-typescript'
 import { cssLoader } from './loaders/cssLoader'
 import { svgLoader } from './loaders/svgLoader'
+import { babelLoader } from './loaders/babelLoader'
 import { BuildOptions } from './types/config'
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    }
-
-    const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    [
-                        'i18next-extract',
-                        {
-                            locales: ['en', 'ru'],
-                            keyAsDefaultValue: true,
-                            saveMissing: true,
-                            outputPath: 'public/locales/{{locale}}/{{ns}}.json',
-                        },
-                    ],
-                ],
+        use: [
+            {
+                loader: require.resolve('ts-loader'),
+                options: {
+                    getCustomTransformers: () => ({
+                        before: [isDev && ReactRefreshTypeScript()].filter(
+                            Boolean
+                        ),
+                    }),
+                    transpileOnly: isDev,
+                },
             },
-        },
+        ],
+        exclude: /node_modules/,
     }
 
     const fileLoader = {
@@ -42,7 +34,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     }
 
     return [
-        babelLoader,
+        babelLoader(),
         typescriptLoader,
         cssLoader(isDev),
         svgLoader,
