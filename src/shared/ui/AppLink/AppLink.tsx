@@ -23,7 +23,6 @@ export function AppLink({
 }: PropsWithChildren<AppLinkProps>) {
     return (
         <Link
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...rest}
             to={to}
             className={classNames(cls.appLink, {}, [className, cls[variant]])}

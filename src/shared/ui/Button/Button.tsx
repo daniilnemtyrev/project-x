@@ -23,6 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariants
     size?: ButtonSizes
     square?: boolean
+    className?: string
 }
 
 export const Button = memo(
@@ -31,6 +32,7 @@ export const Button = memo(
         size = ButtonSizes.M,
         square = true,
         children,
+        className,
         type = 'button',
         ...rest
     }: PropsWithChildren<ButtonProps>) => (
@@ -39,6 +41,7 @@ export const Button = memo(
             className={classNames(cls.button, { [cls.square]: square }, [
                 cls[variant],
                 cls[size],
+                className,
             ])}
             type={type}
         >

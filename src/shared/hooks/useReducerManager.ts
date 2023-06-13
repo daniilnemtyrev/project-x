@@ -1,5 +1,4 @@
 import {
-    ReducerListItem,
     ReducersList,
     ReduxStoreWithManager,
     StateSchemaKey,
