@@ -45,6 +45,7 @@ module.exports = {
         '__IS_DEV__': true,
         '__API_URL__': true,
         '__PROJECT__': true,
+        "JSX": "readonly"
     },
     overrides: [{
         files: ["**/src/**/*.test.{ts,tsx}"],

@@ -17,10 +17,15 @@
   "notFoundPage": "Page not found",
   "sidebar": {
     "about": "About",
+    "articles": "Articles",
     "collapse": "Collapse",
     "main": "Main",
     "profile": "Profile"
   },
   "title": "title",
+  "Произошла ошибка при загрузке статьи": {
+    "": ""
+  },
+  "Статья не найдена": "Статья не найдена",
   "Укажите валюту": "Укажите валюту"
 }

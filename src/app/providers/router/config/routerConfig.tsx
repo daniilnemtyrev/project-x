@@ -1,4 +1,6 @@
 import { AboutPage } from 'pages/AboutPage'
+import { ArticleDetailPage } from 'pages/ArticleDetailPage'
+import { ArticlePage } from 'pages/ArticlePage'
 import { MainPage } from 'pages/MainPage'
 import { NotFoundPage } from 'pages/NotFoundPage'
 import { ProfilePage } from 'pages/ProfilePage'
@@ -9,6 +11,7 @@ export enum AppRoutes {
     ABOUT = '/about',
     PROFILE = '/profile',
     NOT_FOUND = '*',
+    ARTICLES = '/articles',
 }
 
 export interface AppRouteProps extends RouteProps {
@@ -28,6 +31,16 @@ export const routes: AppRouteProps[] = [
     {
         path: AppRoutes.PROFILE,
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    {
+        path: AppRoutes.ARTICLES,
+        element: <ArticlePage />,
+        authOnly: true,
+    },
+    {
+        path: `${AppRoutes.ARTICLES}/:id`,
+        element: <ArticleDetailPage />,
         authOnly: true,
     },
     {

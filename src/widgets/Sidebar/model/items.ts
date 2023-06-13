@@ -1,6 +1,11 @@
 import { AppRoutes } from 'app/providers/router/config/routerConfig'
 import React from 'react'
-import { AboutIcon, MainIcon, ProfileIcon } from 'shared/assets/icons'
+import {
+    AboutIcon,
+    ArticleIcon,
+    MainIcon,
+    ProfileIcon,
+} from 'shared/assets/icons'
 
 export interface SidebarItemType {
     textKey: string
@@ -24,6 +29,12 @@ export const sidebarItemsList: SidebarItemType[] = [
         textKey: 'sidebar.profile',
         Icon: ProfileIcon,
         path: AppRoutes.PROFILE,
+        authOnly: true,
+    },
+    {
+        textKey: 'sidebar.articles',
+        Icon: ArticleIcon,
+        path: AppRoutes.ARTICLES,
         authOnly: true,
     },
 ]
